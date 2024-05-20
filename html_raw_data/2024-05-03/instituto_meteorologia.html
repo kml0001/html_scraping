@@ -1,0 +1,1024 @@
+<html>
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="cache-control" value="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Expires" content="Mon, 01 Jan 1990 00:00:01 GMT">
+
+  <meta name="description" content="Instituto de Meteorología de Cuba">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="Language" content="es">
+  <meta name="keywords" content="Meteorología, Pronósticos, Clima, Agrometeorología, Satélite, Radares, Ciclones Tropicales, Cuba,INSMET">
+  <meta name="author" content="Orestes González">
+<link href="../estilos/Nueva%20carpeta.css" rel="stylesheet" type="text/css">
+<link href="../estilos/Tablas.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFFFFF;
+}
+.style4 {
+	font-size: 14.5px;
+	font-family: "Trebuchet MS";
+	color: #003d6c;
+	font-weight: bold;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.Estilo4 {font-family: Verdana, Arial, Helvetica, sans-serif}
+.Estilo6 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.style5 {
+	color: #D6413B;
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: 10px;
+}
+.style6 {
+	color: #003D6C;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+}
+.style7 {color: #000000}
+-->
+</style>
+
+<script language="JavaScript" type="text/javascript" src="../JLib/capa.js"></script>
+<script language="JavaScript" type="text/javascript" src="../JLib/menu.js"></script>
+<script language="JavaScript" type="text/javascript" src="../JLib/utiles.js"></script>
+<script language="JavaScript" type="text/javascript" src="../JLib/paginas.js"></script>
+
+<script language="JavaScript" type="text/JavaScript">
+
+var clima=new Array();   
+var link='&nbsp;&nbsp;&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS';
+
+//clima[0]=new Array(link+'&TB1=ACLIMA&TB2=/clima/avisoclima.htm" class="menuizquierdaadentro1vinculo">Avisos Climáticos</a>');
+clima[0]=new Array(link+'&TB1=PCLIMA&TB2=/clima/pronosticoclimatico.htm" class="menuizquierdaadentro1vinculo">Pronósticos Climáticos</a>');
+//clima[2]=new Array(link+'&TB1=ENOS&TB2=/clima/enos.htm" class="menuizquierdaadentro1vinculo">Fenómeno El Niño</a>');
+//clima[1]=new Array(link+'&TB1=ESEQUIA&TB2=/clima/sequia.htm" class="menuizquierdaadentro1vinculo">Estado de la Sequía</a>');
+//clima[1]=new Array(link+'&TB1=SUMARIOC&TB2=/clima/SumarioClimatico.htm" class="menuizquierdaadentro1vinculo">Sumario Climático</a>');
+clima[1]=new Array(link+'&TB1=PERSPECTIVASC&TB2=/clima/PerspectivasClimaticas.htm" class="menuizquierdaadentro1vinculo">Perspectivas Climáticas</a>');
+clima[2]=new Array(link+'&TB1=CLIMAC&TB2=/clima/ClimaCuba.htm" class="menuizquierdaadentro1vinculo">El Clima de Cuba</a>');
+clima[3]=new Array('&nbsp;&nbsp;&nbsp;<a href="../asp/link.asp?SQ" class="menuizquierdaadentro1vinculo">Estado de la Sequía</a>');
+clima[4]=new Array('&nbsp;&nbsp;&nbsp;<a href="../asp/link.asp?CC" class="menuizquierdaadentro1vinculo">Caracteristica del Mes</a>');
+//clima[6]=new Array('&nbsp;&nbsp;&nbsp;<a href="../asp/link.asp?OA" class="menuizquierdaadentro1vinculo">Océano-Atmosfera</a>');
+
+var agro=new Array();   
+
+agro[0]=new Array(link+'&TB1=BOLETINAGRIC" class="menuizquierdaadentro1vinculo">Tiempo y Agricultura</a>');
+agro[1]=new Array(link+'&TB1=CULTIVOS" class="menuizquierdaadentro1vinculo">Estado de los Cultivos</a>');
+agro[2]=new Array(link+'&TB1=ANIMALES" class="menuizquierdaadentro1vinculo">Animales de Crianza</a>');
+agro[3]=new Array(link+'&TB1=SEQUIAAGRIC" class="menuizquierdaadentro1vinculo">Sequía Agrícola</a>');
+agro[4]=new Array(link+'&TB1=INCENDIO" class="menuizquierdaadentro1vinculo">Peligro de Incendios</a>');
+
+var aire=new Array();   
+
+aire[0]=new Array(link+'&TB1=OZONO" class="menuizquierdaadentro1vinculo">Ozono Troposférico</a>');
+aire[1]=new Array(link+'&TB1=EMISION&TB2=/emisiones/Emisiones.htm" class="menuizquierdaadentro1vinculo">Gases Efecto Invernadero</a>');
+
+var ciclon=new Array(
+new Array(link+'&TB1=AVISO2&TB2=0" class="menuizquierdaadentro1vinculo">Aviso de Ciclon</a>'),
+new Array(link+'&TB1=DC&TB2=/Pronostico/Aviso/DC.TXT" class="menuizquierdaadentro1vinculo">Nota de la Defensa Civil</a>'),
+//new Array(link+'&TB1=OPTION&TB2=/contenidos/ciclones tropicales/temporadactual.htm" class="menuizquierdaadentro1vinculo">Pronóstico de Temporada</a>'),
+//new Array(link+'&TB1=PERSPECTIVASTT" class="menuizquierdaadentro1vinculo">Persp. Tiempo Tropical</a>'),
+new Array('&nbsp;&nbsp;&nbsp;<a href="../asp/genesis.asp?TB0=TEMPORADAC" class="menuizquierdaadentro1vinculo">Resumen de Temporada</a>'),
+new Array(link+'&TB1=OPTION&TB2=/contenidos/ciclones tropicales/generalidades/generalidades.htm" class="menuizquierdaadentro1vinculo">Generalidades</a>'));
+
+var atlas=new Array(
+		   new Array(link+'&TB1=HELIOMAPAS" class="menuIzquierdoAdentrovinculo"> Helio Mapas </a>'), 
+//	   	   new Array(link+'&TB1=EOLICO&TB2=WEST" class="menuIzquierdoAdentrovinculo"> Atlas Eólico </a>')
+);
+
+var revista=new Array(	
+			new Array(link+'&TB1=EDITORIAL&TB2=/contenidos/biblioteca/revistas/RMC.htm" class="menuizquierdaadentro1vinculo">&nbspSobre la Revista</a>'),
+			new Array('<a href="../Link/Revistas.html" class="menuizquierdaadentro1vinculo">&nbsp;&nbsp;&nbsp Números Publicados</a>')
+);
+					
+var pdia=new Array('PINAR DEL RÍO','32 21 Parcialmente Nublado','32 21 Parcialmente Nublado','32 21 Parcialmente Nublado','32 21 Parcialmente Nublado','32 22 Parcialmente Nublado','HAVANA','32 21 Parcialmente Nublado','32 22 Parcialmente Nublado','32 22 Parcialmente Nublado','32 23 Parcialmente Nublado','34 23 Lluvias en la Tarde','VARADERO','30 23 Parcialmente Nublado','30 24 Parcialmente Nublado','30 24 Parcialmente Nublado','30 24 Parcialmente Nublado','31 24 Lluvias aisladas','CIENFUEGOS','32 22 Parcialmente Nublado','32 22 Parcialmente Nublado','32 23 Lluvias en la Tarde','32 23 Lluvias en la Tarde','32 23 Lluvias en la Tarde','CAYO COCO','29 25 Lluvias aisladas','30 24 Lluvias Ocasionales','30 24 Chubascos','30 24 Chubascos','30 25 Lluvias aisladas','CAMAGÜEY','31 22 Lluvias aisladas','30 22 Lluvias en la Tarde','30 23 Tormentas en la Tarde','30 23 Tormentas en la Tarde','31 23 Lluvias en la Tarde','HOLGUIN','31 22 Lluvias aisladas','31 23 Chubascos','31 23 Tormentas en la Tarde','32 22 Tormentas en la Tarde','32 22 Lluvias en la Tarde','SANTIAGO DE CUBA','30 23 Tormentas en la Tarde','31 23 Tormentas en la Tarde','31 24 Lluvias en la Tarde','32 24 Lluvias aisladas','31 24 Chubascos','');
+var ndia=6;		   //dia de la semana
+var dia5=4;		   //dia del mes
+var fecha5="3/5/2024";  //fecha del pronostico para 5 dias
+
+var base="/";
+var flagPTM=1;
+var flagACT=0;
+var flagDC=0;
+
+function menuCiclon(){
+         var aux=new Array();
+		 var k=0;
+		 var l=0;
+		 
+		 if(flagACT){
+		    aux[k]=ciclon[l];
+			k++;
+		 }
+		 l++;
+		 
+		 if(flagDC){
+		    aux[k]=ciclon[l];
+			k++;
+		 }
+		 l++;
+  
+  while(l<ciclon.length){
+        aux[k]=ciclon[l];
+		k++;
+		l++;
+  }
+  ciclon=aux;
+  		
+  tabClassName('menuizquierdaadentro2');	  
+  writeTab(ciclon,'ciclon');
+}
+
+submenu='';
+menu='';
+
+</script>
+<script language="JavaScript" type="text/JavaScript" src="../JLib/p5.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+
+<body>
+<table align="center" width="772" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../imagenes/superior.jpg" width="772" height="71" border="0"></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="732"  align="left"><img src="../imagenes/superior1.jpg"></td>
+          <td width="28" align="right" class="contenidoPagina"><script language="Javascript"> 
+var dias_semana = new Array ('Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado');
+var nombres_mes = new Array ('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto', 'Septiembre','Octubre','Noviembre','Diciembre');
+var fecha = new Date (); 
+var dia = fecha.getDay (); 
+dia = dias_semana[dia]; 
+var dia_mes = fecha.getDate(); 
+var mes = fecha.getMonth (); 
+mes = nombres_mes[mes]; 
+var anio = fecha.getFullYear(); 
+anio = anio; 
+document.write (dia + ',&nbsp;' + dia_mes + '&nbsp;de&nbsp;' + mes + '&nbsp;de&nbsp;' + anio); 
+      </script> </td>
+          <td width="12" align="right" class="contenidoPagina">&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td align="left">
+
+      <table width="100%" height="12" border="0" cellpadding="0" cellspacing="0" bgcolor="#0F598D">
+        <tr>
+          <td width="374"  align="left" valign="top"><img src="../imagenes/superior2.jpg" ></td>
+          <td width="387" align="right" bgcolor="#FFFFFF"><table width="400" height="22" border="0" align="right" cellpadding="2" cellspacing="1" bordercolor="#FFFFFF">
+              <tr bgcolor="#57A1D5" class="menuIzquierdo"> 
+                <td width="100" height="12" nowrap  align="center"><a href="../index.asp" class="menuIzquierdovinculo" >Inicio</a> 
+                </td>
+                <td width="109" height="12" nowrap align="center"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=OPTION&TB2=/contenidos/mapa del sitio/mapasitio.htm" class="menuIzquierdovinculo">Mapa 
+                  del Sitio</a> </td>
+                <td width="100" height="12" nowrap align="center"><a  href="mailto:meteoro@insmet.cu" class="menuIzquierdovinculo">Contacto</a></td>
+                <td width="100" nowrap align="center"><a href="javascript:print()" class="menuIzquierdovinculo">Imprimir</a></td>
+              </tr>
+            </table></td>
+          
+          <td width="11" align="right" bgcolor="#0F598D">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr><tr><td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="167" align="left" valign="top" bgcolor="#0F598D"><table width="167" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td><table width="167"  border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td  height="18"  class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc1','#');" class="menuIzquierdovinculo">Quiénes 
+                        Somos </a></td>
+    <td align="center"><img src="../imagenes/saeta.jpg" width="15" height="12" align="absmiddle" border="0"></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td><table width="167" border="0" cellspacing="0" cellpadding="0" id="subopc1" style="display:none">
+                          <tr > 
+                            <td width="167" height="18" id="menu1" colspan="2" valign="top" class="menuizquierdaadentro1"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=OPTION&TB2=/contenidos/quienes somos/misionfunciones.htm"  class="menuizquierdaadentro1vinculo">&nbsp;&nbsp;&nbsp;Misión 
+                              y Funciones </a></td>
+                          </tr>
+                          <tr> 
+                            <td height="18" colspan="2" id="menu2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=OPTION&TB2=/contenidos/quienes somos/Estructura.htm" class="menuizquierdaadentro1vinculo">Estructura</a></td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                    <tr> 
+                      <td  height="18" valign="top" class="menuIzquierdo"  style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc2','#');" class="menuIzquierdovinculo">El 
+                        Tiempo </a></td>
+    <td align="center"><a href="javascript:activar('subopc2','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"  id="subopc2" style="display:none">
+                          <tr> 
+                            <td height="18" colspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;Pronóstico</td>
+                          </tr>
+                          <tr> 
+                            <td id="EM" width="17" rowspan="3" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="menu3" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/link.asp?PRONOSTICO" class="menuIzquierdoAdentrovinculo">Para 
+                              hoy</a> </td>
+                          </tr>
+                          <tr> 
+                            <td id="PTM" height="18"  valign="top" class="menuIzquierdoAdentro" style="display:none" >&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PTM&TB2=/Pronostico/Ptm.txt" class="menuIzquierdoAdentrovinculo">Para 
+                              Mañana </a></td>
+                          </tr>
+						  
+<script language="JavaScript" type="text/javascript">
+ instalMenu();
+</script>
+                          <tr> 
+                            <td id="menu4" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PT5" class="menuIzquierdoAdentrovinculo">Extendido 
+                              </a></td>
+                          </tr>
+                          <tr> 
+                            <td height="18" colspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;Pronóstico Marino</td>
+                          </tr>
+                          <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="mar" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=MAR&TB2=/Pronostico/Marady.txt" class="menuIzquierdoAdentrovinculo">Mares Adyacentes</a> </td>
+                          </tr>
+                          <tr> 
+                            <td height="18" colspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;Modelos Numéricos</td>
+                          </tr>
+<!---                           <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="mn" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=MODELOS&TB2=MM50" class="menuIzquierdoAdentrovinculo">MM5 - 3 días</a></td><!--MAPAS&TB3=/mapas/presion/-->
+                          </tr>
+<!---                           <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="wrf" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=MODELOS&TB2=WRF0" class="menuIzquierdoAdentrovinculo">WRF - 3 días, 2 dominios</a></td>
+                          </tr>
+                          <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="wrf2" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=MODELOS&TB2=WRF" class="menuIzquierdoAdentrovinculo">WRF - 3 días</a></td>
+                          </tr>
+                          <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="wrf24" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=MODELOS&TB2=WRF24" class="menuIzquierdoAdentrovinculo">WRF - 24 horas</a></td>
+                          </tr>-->
+<!--WEST-->               <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="west" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=EOLICO&TB2=WEST" class="menuIzquierdoAdentrovinculo">W.E.S.T.-Cuba</a></td>
+                          </tr>	 
+<!-- PRECIS          <tr> 
+                            <td width="17" rowspan="1" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="precis" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PRECIS&TB2=ESCENARIOS" class="menuIzquierdoAdentrovinculo">PRECIS Caribe</a></td>
+                          </tr>	 -->
+                          <tr> 
+                            <td height="18" colspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;Tiempo 
+                              Actual </td>
+                          </tr>
+                          <tr> 
+                            <td width="17" rowspan="5" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="menu5" width="150" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=MAPATIEMPO" class="menuIzquierdoAdentrovinculo">Mapa 
+                              del Tiempo</a> </td>
+                          </tr>
+<!--    ESTACIONES -->   <tr> 
+                            <td id="menu6" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=ESTACIONES&TB2=CUBA2&TB3=CUBA&TB4=/pronostico/est.csv&TB5=16" class="menuIzquierdoAdentrovinculo">Estaciones 
+                              </a></td>
+                          </tr> 
+                          <tr> 
+                            <td id="menu7" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=SATLINK" class="menuIzquierdoAdentrovinculo">Satélites</a></td>
+                          </tr>
+                          <tr> 
+                            <td id="menu8" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=RADARES" class="menuIzquierdoAdentrovinculo">Radares</a></td>
+                          </tr>
+                          <tr> 
+                            <td id="menu9" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PERSPECTIVASTT" class="menuIzquierdoAdentrovinculo">Perspectivas del Tiempo</a></td>
+                          </tr>
+                          <tr> 
+                            <td id="menu10"height="18" colspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;<a href="../asp/link.asp?RESUMEN" class="menuizquierdaadentro1vinculo">Resumen 
+                              Mensual</a></td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                    <tr> 
+                      <td height="18" valign="top" class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc3','#');" class="menuIzquierdovinculo">Ciclones 
+                        Tropicales </a></td>
+    <td align="center"><a href="javascript:activar('subopc3','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td><table width="167" height="100%" border="0" cellpadding="0" cellspacing="0"  id="subopc3" style="display:none">
+					     <tbody id="ciclon">
+						 </tbody>
+                        </table>
+<script language="JavaScript" type="text/javascript">
+menuCiclon();
+</script>	  
+					</td>
+                    </tr>
+                    <tr> 
+                      <td height="18" valign="top" class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc4','#');" class="menuIzquierdovinculo">Clima  </a></td>
+    <td align="center"><a href="javascript:activar('subopc4','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td>
+					  <table width="167" height="100%" border="0" cellpadding="0" cellspacing="0" id="subopc4" style="display:none">
+					     <tbody id="clima">
+						 </tbody>
+					  </table>
+<script language="JavaScript" type="text/javascript">
+tabClassName('menuizquierdaadentro2');	  
+writeTab(clima,'clima');
+</script>
+<!--					  <table width="167" height="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr> 
+                            <td height="18" colspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;&nbsp;&nbsp;Sequía</td>
+                          </tr>
+                          <tr> 
+                            <td  width="17" rowspan="2" valign="top" class="menuizquierdaadentro1">&nbsp;</td>
+                            <td id="sq" height="18" valign="top" class="menuIzquierdoAdentro">&nbsp;<a href="../asp/link.asp?SQ" class="menuIzquierdoAdentrovinculo">Estado</a> </td>
+                          </tr>
+                          <tr> 
+                             <td id="mn" height="18"  valign="top" class="menuIzquierdoAdentro">&nbsp;Monitoreo</td>
+                          </tr>
+					  </table>
+-->					  </td>
+                    </tr>
+ <tr> 
+   <td height="18" valign="top" class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc6','#');" class="menuIzquierdovinculo">Agrometeorología </a></td>
+    <td align="center"><a href="javascript:activar('subopc6','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td><table width="167" height="100%" border="0" cellpadding="0" cellspacing="0" id="subopc6" style="display:none">
+   					     <tbody id="agro">
+						 </tbody>
+                        </table>
+<script language="JavaScript" type="text/javascript">
+tabClassName('menuizquierdaadentro2');	  
+writeTab(agro,'agro');	
+</script>
+					  </td>
+                    </tr>
+<tr> 
+   <td height="18" valign="top" class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc9','#');" class="menuIzquierdovinculo">Energética</a></td>
+    <td align="center"><a href="javascript:activar('subopc9','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+
+                    <tr> 
+                      <td><table width="167" height="100%" border="0" cellpadding="0" cellspacing="0" id="subopc9" style="display:none">
+   					     <tbody id="atlas">
+						 </tbody>
+                        </table>
+<script language="JavaScript" type="text/javascript">
+tabClassName('menuizquierdaadentro2');	  
+writeTab(atlas,'atlas');	
+</script>
+					  </td>
+                    </tr>
+
+ <tr> 
+   <td height="18" valign="top" class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc7','#');" class="menuIzquierdovinculo">Calidad del Aire </a></td>
+    <td align="center"><a href="javascript:activar('subopc7','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td><table width="167" height="100%" border="0" cellpadding="0" cellspacing="0" id="subopc7" style="display:none">
+   					     <tbody id="aire">
+						 </tbody>
+                        </table>
+<script language="JavaScript" type="text/javascript">
+tabClassName('menuizquierdaadentro2');	  
+writeTab(aire,'aire');	
+</script>
+					  </td>
+                    </tr>
+<!--                    <tr> 
+                      <td  id="menu20" height="18" class="menuIzquierdo" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="88%" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc5','#');" class="menuIzquierdovinculo">Biblioteca</a></td>
+    <td width="12%"><div align="center"><a href="javascript:activar('subopc5','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></div></td>
+  </tr>
+</table>
+</td>
+                    </tr>-->
+<!--                    <tr>
+                      <td><table width="167" height="100%" border="0" cellpadding="0" cellspacing="0" id="subopc5" style="display:none">
+                          <tr> 
+                            <td id="menu18" height="18" align="top" class="menuizquierdaadentro1"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=OPTION&TB2=/contenidos/biblioteca/informacion/informaciongeneral.htm" class="menuizquierdaadentro1vinculo">&nbsp;&nbsp;&nbsp;Información 
+
+                              General</a></td>
+                          </tr>-->
+<!--                          <tr> 
+                            <td id="menu19" width="167" height="18" valign="top" class="menuizquierdaadentro1"><a href="../Link/Revistas.html" class="menuizquierdaadentro1vinculo">&nbsp;&nbsp;&nbsp;Revista Meteorológica</a></td>
+                          </tr>-->
+<!--                        </table></td>
+                    </tr>-->
+
+<!-- <tr> 
+   <td height="18" valign="top" class="menuIzquierdo" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="145" valign="middle">&nbsp;&nbsp;<a href="javascript:activar('subopc8','#');" class="menuIzquierdovinculo">Revista&nbsp;Meteorológica </a></td>
+    <td align="center"><a href="javascript:activar('subopc8','#');" class="menuIzquierdovinculo"><img src="../imagenes/saeta.jpg" width="15" height="12" border="0"></a></td>
+  </tr>
+</table>
+</td>
+                    </tr>
+                    <tr> 
+                      <td><table width="167" height="100%" border="0" cellpadding="0" cellspacing="0" id="subopc8" style="display:none">
+   					     <tbody id="revista">
+						 </tbody>
+                        </table>
+<script language="JavaScript" type="text/javascript">
+//tabClassName('menuizquierdaadentro2');	  
+//writeTab(revista,'revista');	
+</script>
+					  </td>
+                    </tr>-->
+
+                    <tr>
+                      <td  id="menu21" height="18" class="menuIzquierdo" ><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="88%"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=OPTION&TB2=/contenidos/sitiosrelacionados.htm" class="menuIzquierdovinculo"> &nbsp;&nbsp;&nbsp;Otros Sitios</a></td>
+                          <td width="12%">&nbsp;</td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td><table width="167" border="0" cellpadding="0" cellspacing="0" bgcolor="#003D6C">
+                    <tr> 
+                      <td height="1" align="center" bgcolor="#FFFFFF"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td height="18" align="center" valign="bottom"><span class="Estilo6">Pronóstico 
+                        Extendido  </span></td>
+                    </tr>
+                    <tr> 
+                      <td  height="210" align="center" valign="middle" bgcolor="#003D6C">
+                        <table width="142" height="193" border="0" cellpadding="0" cellspacing="0" bgcolor="#003D6C" background="../imagenes/menu5dias.jpg" summary="">
+                          <tr> 
+                            <td height="2" valign="middle" colspan="3"><img src="../imagenes/uno.jpg" width="1" height="5"></td>
+                          </tr>
+                          <tr> 
+                            <td height="14" valign="middle" colspan="3" align="center" class="contenidoPagina">[desde 
+                                el&nbsp;3/5/2024]</td>
+                          </tr>
+                          <tr> 
+                            <td height="6" align="center" valign="middle" colspan="3" ><img src="../imagenes/uno.jpg" width="1" height="1"></td>
+                          </tr>
+                          <tr> 
+                            <td height="16" align="center" valign="top" colspan="3"><select class="contenidoCombo" onchange="changeDay(this.options[this.selectedIndex].value);" style="width:116" name="select">
+                                <option id="o0" value=1>Domingo</option>
+                                <option id="o1" value=2>Lunes</option>
+                                <option id="o2" value=3>Martes</option>
+                                <option id="o3" value=4>Miércoles</option>
+                                <option id="o4" value=5>Jueves</option>
+                              </select></td>
+                          </tr>
+                          <tr> 
+                            <td height="10" colspan="3"><img src="../imagenes/uno.jpg" width="1" height="2"></td>
+                          </tr>
+                          <tr> 
+                            <td height="16" align="center" valign="top" colspan="3"><select class="contenidoCombo" onchange="changeCity(this.options[this.selectedIndex].value);" style="width:116"name="select2">
+                                <option value="0">Pinar del Río</option>
+                                <option value="1" selected >La Habana 
+                                </option>
+                                <option value="2">Varadero</option>
+                                <option value="3">Cienfuegos</option>
+                                <option value="4">Cayo Coco</option>
+                                <option value="5">Camagüey</option>
+                                <option value="6">Holguín</option>
+                                <option value="7">Santiago</option>
+                              </select></td>
+                          </tr>
+                          <tr> 
+                            <td height="12" colspan="3"><img src="../imagenes/uno.jpg"></td>
+                          </tr>
+                          <tr> 
+                            <td height="18" align="center" colspan="3" id="tmax" class="style5">Tmax: 
+                              30 ºC</td>
+                          </tr>
+                          <tr> 
+                            <td height="18" align="center" colspan="3" id="tmin" class="style6">Tmin: 
+                              29 ºC</td>
+                          </tr>
+                          <tr> 
+                            <td height="30"align="center" valign="middle" colspan="3"><img id="icono" src="../imagenes/iconos/parcialmente%20nublado.gif"></td>
+                          </tr>
+                          <tr> 
+                            <td  align="center" valign="top" width="16">&nbsp;</td>
+                            <td id="estado" height="30" valign="top" align="center" class="negrita">Parcialmente 
+                              <br>
+                              Nublado </td>
+                            <td align="center" valign="top" width="16">&nbsp;</td>
+                          </tr>
+                          <tr> 
+                            <td colspan="3"><img src="../imagenes/uno.jpg"></td>
+                          </tr>
+                        </table>
+<script language="JavaScript" type="text/javascript">
+instalP5();//Las llamadas estas funciones se hacen aca porque "plantillas.html" es una plantilla de genesis
+</script>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td height="1" align="center" valign="middle" bgcolor="#FFFFFF"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td>&nbsp;</td>
+              </tr>
+            </table></td>
+          <td width="605" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td> <html>
+<!-- Created on: 20/10/2004 -->
+<head>
+  <title>Instituto de Meteorología, Inicio</title>
+  <meta name="description" content="Instituto de Meteorología de Cuba">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="Language" content="es">
+  <meta name="keywords" content="Meteorología, Pronósticos, Clima, Agrometeorología, Satélite, Radares, Ciclones Tropicales, Cuba,INSMET">
+  <meta name="author" content="Orestes González">
+  
+  <link href="../estilos/Nueva%20carpeta.css" rel="stylesheet" type="text/css">
+  <link href="../estilos/Tablas.css" rel="stylesheet" type="text/css">
+  
+   
+</head>
+<body link="#003D6C" vlink="#003D6C" alink="#003D6C">
+<table width="605" height="100%" border="0" cellspacing="0" cellpadding="0" class="tablainicial" >
+  <tr>
+    <td valign="top" height="100%" align="right"><table width="600" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
+
+<!-- Evento Importante
+optiones(0)%-->
+<!--Evento-->
+
+<!--Aviso Especial-->
+ 
+<!--Aviso Ciclon Tropical-->
+ 
+ 
+<!-- Defensa Civil
+<optiones(7)%>
+-->
+<!--Nota Informativa-->
+
+<!--Pronostico-->
+			  
+
+<tr> 
+                <td ><table width="100%" height="120" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-bottom: #FFFFFF" summary="">
+                    <tr> 
+                      <td height="20" colspan="2" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" width="535" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white" class="tituloPaginas">&nbsp;Pronóstico del Tiempo</td>
+                    </tr>
+                    <tr> 
+                      <td width="5" bgcolor="white"></td>
+                      <td colspan="2" bgcolor="white" class="contenidoPagina"><font color='#003d6c'><i>tarde cálida y algunas lluvias en el sur oriental</i></font><br><p align='justify'>                                   Amanecerá parcialmente nublado la costa norte de centro y oriente, se nublará ocasionalmente con aislados chubascos en la mañana. En el resto del país será poca la nubosidad, y desde el final de la mañana estará parcialmente nublado en gran parte del país. Se nublará en la tarde hacia localidades del sur con algunos chubascos y lluvias en el sur oriental, aislados en resto de las regiones y escasos para la costa norte.<br><br></p></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="white" width="5"></td>
+                      <td bgcolor="#CCE2F2" width="10"></td>
+                      <td bgcolor="#CCE2F2" height="10" align="right"><a class="vermas" href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PTM&TB2=/Pronostico/ptm.txt">[ver más]&nbsp;&nbsp;</a></td>
+                    </tr>
+                  </table></td>
+              </tr>
+
+<!--Aviso Climatico-->
+              <tr> 
+                <td ><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 1px solid #8e8d8d">
+                    <tr> 
+                      <td bgcolor="#CCE2F2"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="vermas" align="center">
+                          <tr> 
+                            <td colspan="7">&nbsp;</td>
+                          </tr>
+                          <tr> 
+                            <td height="76">&nbsp;</td>
+                            <td height="76" align="center" style="border: 1px solid #8e8d8d"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=SATLINK"><img src="../imagenes/inicial/satelite.gif" width="102" border="0"></a></td>
+                            <td height="76">&nbsp;</td>
+                            <td height="76" align="center" style="border: 1px solid #8e8d8d"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=RADARES"><img src="../imagenes/inicial/radares.gif" width="102"  border="0"></a></td>
+                            <td height="76">&nbsp;</td>
+                            <td height="76" align="center" style="border: 1px solid #8e8d8d"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PERSPECTIVASTT"><img src="../Imagenes/inicial/mapa.gif" width="102"  border="0"></a></td>
+                            <td height="76">&nbsp;</td>
+<!--                            <td height="76" align="center" style="border: 1px solid #8e8d8d"><a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PERSPECTIVASTT"><img src="../Imagenes/inicial/ciclon2.jpg" width="77"   border="0"></a></td>
+                            <td height="76">&nbsp;</td>-->
+                          </tr>
+                          <tr> 
+                            <td width="8%">&nbsp;</td>
+                            <td width="24%" align="center">Satélite</td>
+                            <td width="6%">&nbsp;</td>
+                            <td width="24%" align="center">Radares</td>
+                            <td width="6%">&nbsp;</td>
+                            <td width="24%" align="center">Perspectiva del Tiempo</td>
+                            <td width="8%" >&nbsp;</td>
+<!--                            <td width="24%" align="center">Perspectiva</td>
+                            <td width="8%" >&nbsp;</td>-->
+                          </tr>
+                          <tr> 
+                            <td colspan="7">&nbsp;</td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+
+<tr>  
+                <td ><table width="100%" height="120" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-bottom: #FFFFFF" summary="">
+                    <tr> 
+                      <td height="20" colspan="2" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" width="535" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white" class="tituloPaginas">&nbsp;Pronóstico
+                        Climático </td>
+                    </tr>
+                    <tr> 
+                      <td width="5" bgcolor="white"></td>
+                      <td colspan="2" bgcolor="white" class="contenidoPagina"><font color='#003d6c'><i>... Se espera un mes con precipitaciones en la norma y temperaturas extremas por encima del promedio histórico en todo el país ...<br><br></i></font><br><p align='justify'>En el mes de mayo comienza el período lluvioso en la mayor parte de nuestro país, el que se extiende hasta octubre. En consecuencia, es habitual que los totales de lluvia se incrementen de forma notable con respecto a los meses anteriores, siendo incluso muy altos en ocasiones. Las precipitaciones dependen de la influencia de los sistemas migratorios de la zona tropical, tales como las ondas y las bajas tropicales, y de su interacción con sistemas de latitudes medias.<br><br></p></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="white" width="5"></td>
+                      <td bgcolor="#CCE2F2" width="10"></td>
+                      <td bgcolor="#CCE2F2" height="10" align="right"><a class="vermas"  href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=PCLIMA&TB2=/clima/pronosticoclimatico.htm" >[ver más]&nbsp;&nbsp;</a></td>
+                    </tr>
+                  </table></td>
+              </tr>
+
+<!--Sequia -->
+
+<tr> 
+                <td ><table width="100%" height="120" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-bottom: #FFFFFF" summary="">
+                    <tr> 
+                      <td height="20" colspan="2" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" width="535" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white" class="tituloPaginas">&nbsp;Estado 
+                        de la Sequía</td>
+                    </tr>
+                    <tr> 
+                      <td width="5" bgcolor="white"></td>
+                      <td colspan="2" bgcolor="white" class="contenidoPagina"><font color='#003d6c'><i>...El 20 % del territorio nacional presentó afectación por sequía meteorológica...<br><br></i></font><br><p align='justify'>Finalizó marzo con el 26 % del territorio nacional con déficits en los acumulados de las lluvias, concentrados fundamentalmente en la región oriental. De ese porcentaje, 7 % clasificó en la categoría de severo a extremo, 8 % moderado y 11 % débil.<br><br></p></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="white" width="5"></td>
+                      <td bgcolor="#CCE2F2" width="10"></td>
+                      <td bgcolor="#CCE2F2" height="10" align="right"><a  class="vermas" href="../asp/link.asp?SQ">[ver más]&nbsp;&nbsp;</a></td>
+                    </tr>
+                  </table></td>
+              </tr>
+			  <tr>
+			    <td height="5"><img src="../imagenes/uno.jpg"></td>
+			  </tr>
+
+
+            </table></td>
+          <td width="25%" height="100%" valign="top">
+		  						 
+		  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="2">
+   <tr>	  
+  		<td>
+<script language="JavaScript" type="text/javascript">
+
+function Cargada(){
+		 if(document.images['iCono']!=null){	
+			 document.images['iCono'].src=this.src;
+			 document.getElementById('Graf').style.display="block";
+		 }	 
+}
+
+var ImgCono;
+
+
+function nada(){ return; }
+
+function otraVezCono(){	   
+	      
+		   ImgCono = new Image();								   // error en Chrome ver. 31 y 32
+	       ImgCono.onload  = Cargada;
+		   ImgCono.onerror = nada;
+		   ImgCono.src="../Pronostico/Aviso/cono.jpg";
+}
+
+function setCarga(){
+	   
+	   ImgCono = new Image();
+	   ImgCono.onload  = Cargada;
+	   ImgCono.onerror = otraVezCono;	 					  			   	  //otraVez;
+	   ImgCono.src="../Pronostico/Aviso/cono.jpg";		
+}
+
+
+</script>		
+<!--para ver display:block-->
+	  <table id="Graf" width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-right: #FFFFFF; display:none">
+      			 <tr> 
+                      <td width="9" height="20" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" colspan="2" class="tituloPaginas" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white">&nbsp;Gráficos del Ciclón</td>
+
+                 </tr>
+<!--                <tr bgcolor="#CCE2F2"> 
+					   <td height="80">&nbsp;</td>
+					   <td align="left" width="70"><a class="vinculo" href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=GRAFICOS&TB2=../Pronostico/Aviso/viento.jpg" ><img width="80" height="63" src="../Imagenes/vientociclon.jpg" border="0"></a></td>
+					   <td align="right"><a class="vinculo" href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=GRAFICOS&TB2=../Pronostico/Aviso/viento.jpg" >&nbsp;&nbsp;Campo de Viento <br></a></td>
+					</tr>-->
+					
+                 <tr bgcolor="#CCE2F2"> 
+					   <td height="80">&nbsp;</td>
+					   <td align="left" width="70"><a class="vinculo" href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=GRAFICOS&TB2=../Pronostico/Aviso/cono.jpg&TB3=0" ><img id="iCono" width="80" height="57" src="../Imagenes/conociclon.jpg" border="0"></a></td>
+					   <td align="right"><a class="vinculo" href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=GRAFICOS&TB2=../Pronostico/Aviso/cono.jpg&TB3=0" >&nbsp;&nbsp;Cono de <br>&nbsp;&nbsp;Probabilidades<br></a></td>
+					</tr>
+					</table> 
+					</td>  
+			  </tr>
+
+<!-- telefonos     <tr>	  
+			  		<td>
+				    <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-right: #FFFFFF" summary="">
+                    <tr> 
+                      <td width="9" height="20" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" colspan="2" class="tituloPaginas" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white">&nbsp;Centro de Llamadas</td>
+                    </tr>
+                    <tr bgcolor="#CCE2F2"> 
+					   <td height="80">&nbsp;</td>
+					   <td align="left" width="70" class="vinculo">Teléfonos:</td>
+					   <td align="right" class="contenidoPagina">867 0722&nbsp;<br>867 0723&nbsp;<br>867 0724&nbsp;<br>867 0725&nbsp;<br>867 0726&nbsp;</td>
+					</tr>
+					</table>
+					</td>  
+			  </tr> -->
+		      <tr>	  
+			  		<td>
+				    <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-right: #FFFFFF" summary="">
+                    <tr> 
+                      <td width="9" height="20" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" colspan="2" class="tituloPaginas" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white">&nbsp;Canal RSS</td>
+                    </tr> 
+					
+                   <tr bgcolor="#CCE2F2"> 
+					   <td height="16" colspan="3">&nbsp;</td>
+					</tr>
+
+<!--
+                    <tr id='cap' bgcolor="#CCE2F2"> 
+					   <td height="32">&nbsp;</td>
+					   <td align="left" colspan="2"><table style="background: #FF0000"><tr><td align="left" width="70"><a class="vinculo" href="../cap/rss.xml" target="_blank"><img width="70" src="../Imagenes/capLogo.jpg" border="0"></a></td><td><a href="../cap/rss.xml" target="_blank" style="font-family: verdana;font-size: 11px; font-weight: bold; color: #FFFFFF; font-variant: normal;">&nbsp;&nbsp;Alertas!!!</a></td></tr></table></td>
+					</tr>
+
+					
+                    <tr bgcolor="#CCE2F2"> 
+					   <td height="16">&nbsp;</td>
+					   <td align="left" width="70"><a class="vinculo" href="../cap/rss.xml" target="_blank"><img width="42" height="14" src="../Imagenes/capLogo.jpg" border="0"></a></td>
+					   <td><a  class="vinculo" href="../cap/rss.xml" target="_blank" style="font-family: verdana;font-size: 11px; font-weight: bold; color: #FF0000; font-variant: normal;">Alertas!!!</a></td>					
+					</tr>-->
+
+                    <tr bgcolor="#CCE2F2"> 
+					   <td height="16">&nbsp;</td>
+					   <td align="left" width="70"><a class="vinculo" href="../asp/genesis.asp?TB0=RSSFEED" target="_blank"><img width="36" height="14" src="../Imagenes/xml.jpg" border="0"></a></td>
+					   <td align="left"><a class="vinculo" href="../asp/genesis.asp?TB0=RSSFEED" target="_blank">Pronósticos,<br>Avisos Especiales,<br>Notas Informativas<br></a></td>
+					</tr>
+					</table>
+					</td>  
+			  </tr>
+<!--apk-->
+		      <tr>	  
+			  		<td>
+				    <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-right: #FFFFFF" summary="">
+                    <tr> 
+                      <td width="9" height="20" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" colspan="2" class="tituloPaginas" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white">&nbsp;APK Insmet</td>
+                    </tr> 
+					
+                   <tr bgcolor="#CCE2F2"> 
+					   <td height="16" colspan="3">&nbsp;</td>
+					</tr>
+                    <tr bgcolor="#CCE2F2"> 
+					   <td height="16">&nbsp;</td>
+					   <td align="left" width="70"><a class="vinculo" href="../apk/insmet.apk" target="_blank"><img width="48" height="48" src="../Imagenes/apk.png" border="0"></a></td>
+					   <td align="left"><a class="vinculo" href="../apk/insmet.apk" target="_blank">Pronósticos,<br>Avisos Especiales,<br>Notas Informativas<br></a></td>
+					</tr>
+					</table>
+					</td>  
+			  </tr>
+
+
+<!--<tr>	  
+			  		<td>
+				    <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-right: #FFFFFF" summary="">
+                    <tr> 
+                      <td width="9" height="20" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" colspan="2" class="tituloPaginas" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white">&nbsp;Evento</td>
+                    </tr>
+                     <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="../html/carta felicitacion Raul.pdf" target="_blank"><img src="../imagenes/50.gif" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="../html/carta felicitacion Raul.pdf" target="_blank">&nbsp;Carta del<br>compañero<br> Raúl Castro Ruz</a></td>
+                    </tr>
+					</table>
+					</td>  
+			  </tr>-->
+              <tr> 
+                <td height="100%" valign="top">
+				    <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #8e8d8d; border-right: #FFFFFF" summary="">
+                    <tr> 
+                      <td width="9" height="20" align="center" valign="middle" bgcolor="white"><img src="../imagenes/azulito.jpg" width="9" height="18"></td>
+                      <td height="20" colspan="2" class="tituloPaginas" style="border: 1px solid #8e8d8d; border-left-color: white; border-right-color: white; border-top-color: white">&nbsp;Otros Sitios</td>
+                    </tr>
+					<tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td width="70" bgcolor="#CCE2F2" align="left"><a href="http://ccc.insmet.cu" target="_blank"><img src="../imagenes/icon-ccc.png" width="70" height="60" border="0"></a></td>
+                      <td width="77" bgcolor="#CCE2F2" class="vinculo" align="right"><a href="http://ccc.insmet.cu" target="_blank">&nbsp;Cambio Climático en Cuba</a>&nbsp;</td>
+                    </tr>
+<!--                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td width="70" bgcolor="#CCE2F2" align="left"><a href="../sometcuba/default.htm" target="_blank"><img src="../imagenes/somet.jpg" width="70" height="70" border="0"></a></td>
+                      <td width="77" bgcolor="#CCE2F2" class="vinculo" align="right"><a href="../sometcuba/default.htm" target="_blank">&nbsp;Sociedad Meteorológica de Cuba</a>&nbsp;</td>
+                    </tr>-->
+                     <tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                   <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="https://www.wmo.int/pages/index_en.html" target="_blank"><img src="../imagenes/omm.jpg" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="https://www.wmo.int/pages/index_en.html" target="_blank">&nbsp;Organización Meteorológica 
+                        Mundial </a></td>
+                    </tr>
+<!--                    <tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="https://fb.me/e/2kS9J3rMQ?ti=wa" target="_blank"><img src="../imagenes/diaCiencia.jpeg" width="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="https://fb.me/e/2kS9J3rMQ?ti=wa" target="_blank">&nbsp;Acto Nacional por el Día de la Ciencia en Cuba </a></td>
+                    </tr>-->
+<!--                    <tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="http://www.hidro.cu/" target="_blank"><img src="../imagenes/inrh.jpg" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="http://www.hidro.cu/" target="_blank">&nbsp;Instituto Nacional de Recursos Hidráulicos </a></td>
+                    </tr>-->
+<!--				<tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="../sequia/amigo.htm" target="_blank"><img src="../imagenes/Rsvsequia-logo.png" width="97%" height="97%" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="../sequia/dashboard.Sequia.2.html" target="_blank">&nbsp;Estado de la Sequia</a></td>
+                    </tr>-->
+                    <tr>
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="../AgroBoletin/agro.htm" target="_blank"><img src="../Imagenes/iconagro.jpg" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="../AgroBoletin/agro.htm" target="_blank">&nbsp;Boletín Agro-<br>meteorológico</a></td>
+                    </tr>
+  		    <tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="http://rcm.insmet.cu" target="_blank"><img src="../imagenes/rcm.png" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="http://rcm.insmet.cu" target="_blank">&nbsp;Revista Cubana de Meteorología </a></td>
+                    </tr>
+  		    <tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="http://modelos.insmet.cu" target="_blank"><img src="../imagenes/icon-modelos.png" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="http://modelos.insmet.cu" target="_blank">&nbsp;Modelos Numéricos de Predicción del Tiempo </a></td>
+                    </tr>
+
+<!--					<tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                     <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="../Boletin-Cont/contaminacion.html" target="_blank"><img src="../Boletin-Cont/logo1.jpg" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="../Boletin-Cont/contaminacion.html" target="_blank">&nbsp;Boletín <br>de Vigilancia<br> Atmosférica</a></td>
+                    </tr>
+                    <tr> 
+                      <td height="5" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                  <tr> 
+                      <td bgcolor="#CCE2F2">&nbsp;</td>
+                      <td bgcolor="#CCE2F2" align="left"><a href="http://www.cptec.inpe.br/queimadas/risc_cuba/queimap_cuba.html" target="_blank"><img src="../imagenes/Quemadas.jpg" width="70" height="70" border="0"></a></td>
+                      <td bgcolor="#CCE2F2" class="vinculo" align="right"><a href="http://www.cptec.inpe.br/queimadas/risc_cuba/queimap_cuba.html" target="_blank">&nbsp;Detección de incendios para Cuba</a></td>
+                    </tr>-->
+					<tr> 
+                      <td height="100%" colspan="3" bgcolor="#CCE2F2"><img src="../imagenes/uno.jpg"></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+<script language="JavaScript" type="text/javascript">
+setCarga();
+</script>
+</html>
+</td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr> 
+          <td bgcolor="#0F598D" align="center">&nbsp;<!--<a href="../asp/genesis.asp?TB0=RSSFEED" class="menuIzquierdovinculo">canal rss</a>--></td>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td height="18" align="center" valign="top" bordercolor="#FFFFFF" 
+		bgcolor="57A1D5" class="MenuAbajo"><a href="../index.asp" class="MenuAbajo">Inicio</a> 
+                  | <a href="../asp/genesis.asp?TB0=PLANTILLAS&TB1=OPTION&TB2=/contenidos/mapa del sitio/mapasitio.htm" class="MenuAbajo">Mapa 
+                  del sitio</a> | <a  href="mailto:meteoro@insmet.cu" class="MenuAbajo">Contacto</a> 
+                  | <a href="javascript:print()" class="MenuAbajo">Imprimir</a>
+				  <!--| <a href="../asp/genesis.asp?TB0=RSSFEED"class="MenuAbajo">Canal RSS</a>--></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr bgcolor="#0F598D"> 
+          <td id="debuger">&nbsp;</td>
+          <td align="center" class="contenidoPagina"><font color="#B5DAF2"><script language="Javascript">
+		  document.write ("Copyright © 1997-"+anio+". INSMET ® Todos los derechos reservados");
+		  </script>
+		  </font></td>
+        </tr>
+      </table></td>
+  </tr>
+</table> 
+<script language="JavaScript" type="text/javascript"> 
+activar(submenu,menu);
+</script>
+</body>
+</html>
